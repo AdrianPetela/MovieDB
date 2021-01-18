@@ -9,11 +9,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 import com.pl.dbObjects.Movie;
 import com.pl.dbUtils.CallableStatementParameter;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class MovieController {
     CallableStatementParameter cspie = new CallableStatementParameter();
     private ObservableList<String> listYear;
     private ObservableList<Movie> listMovie;
+
 
     @FXML
     private ComboBox<String> comboYear;
@@ -51,11 +54,12 @@ public class MovieController {
             listMovie = FXCollections.observableArrayList(cspie.listMovie("Wszystkie"));
             Table.setItems(listMovie);
         } catch (SQLException e) {
-            System.out.println("Problem z wyswietleniem hoteli");
+            System.out.println("Problem");
             e.printStackTrace();
         }
         comboYear.setItems(listYear);
         comboYear.getItems().add("Wszystkie");
+        comboYear.getSelectionModel().selectLast();
 
         Ttitle.setCellValueFactory(new PropertyValueFactory<>("MOV_TITLE"));
         Tyear.setCellValueFactory(new PropertyValueFactory<>("MOV_YEAR"));
@@ -64,6 +68,16 @@ public class MovieController {
         Tdate.setCellValueFactory(new PropertyValueFactory<>("MOV_DT_REL"));
         Tcountry.setCellValueFactory(new PropertyValueFactory<>("MOV_REL_COUNTRY"));
     }
+
+    @FXML
+    void removeMovie(ActionEvent event) throws SQLException {
+        Movie movie = Table.getSelectionModel().getSelectedItem();
+        System.out.println(movie.getMOV_ID());
+        cspie.removeMovie(movie.getMOV_ID());
+        przeladuj();
+    }
+
+
 
     void przeladuj() {
         try {

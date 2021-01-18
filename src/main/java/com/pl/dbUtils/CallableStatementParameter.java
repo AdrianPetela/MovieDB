@@ -26,9 +26,9 @@ public class CallableStatementParameter {
         String query = "";
 
         if (year.equals("Wszystkie")) {
-            query = "SELECT MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY FROM MOVIE";
+            query = "SELECT MOV_ID, MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY FROM MOVIE";
         } else {
-            query = "SELECT MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY FROM MOVIE WHERE MOV_YEAR =  " + year + ";";
+            query = "SELECT MOV_ID, MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY FROM MOVIE WHERE MOV_YEAR =  " + year + ";";
         }
 
         try {
@@ -36,13 +36,14 @@ public class CallableStatementParameter {
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()) {
+                Integer MOV_ID = rs.getInt("MOV_ID");
                 String MOV_TITLE = rs.getString("MOV_TITLE");
                 Integer MOV_YEAR = rs.getInt("MOV_YEAR");
                 Integer MOV_TIME = rs.getInt("MOV_TIME");
                 String MOV_LANG = rs.getString("MOV_LANG");
                 String MOV_DT_REL = rs.getString("MOV_DT_REL");
                 String MOV_REL_COUNTRY = rs.getString("MOV_REL_COUNTRY");
-                arrayList.add(new Movie(MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY));
+                arrayList.add(new Movie(MOV_ID, MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY));
             }
 
         } catch (SQLException e) {
@@ -51,6 +52,45 @@ public class CallableStatementParameter {
             if (stmt != null)   stmt.close();
         }
         return arrayList;
+    }
+
+    public String removeMovie(int movie_id) throws SQLException {
+        Statement stmt = null;
+        String query1 = "DELETE FROM MOVIE_GENRES MG\n" +
+                "WHERE MG.MOV_ID = ?;";
+        String query2 = "DELETE FROM RATING R\n" +
+                "WHERE R.MOV_ID = ?;";
+        String query3 = "DELETE FROM MOVIE_CAST MC\n" +
+                "WHERE MC.MOV_ID = ?;";
+        String query4 = "DELETE FROM MOVIE_DIRECTION MD\n" +
+                "WHERE MD.MOV_ID = ?;";
+        String query5 = "DELETE FROM MOVIE M\n" +
+                "WHERE M.MOV_ID = ?;";
+
+        try {
+            Connection con = this.getDBConnection();
+            PreparedStatement preparedStmt = con.prepareStatement(query1);
+            preparedStmt.setInt(1, movie_id);
+            preparedStmt.execute();
+            preparedStmt = con.prepareStatement(query2);
+            preparedStmt.setInt(1, movie_id);
+            preparedStmt.execute();
+            preparedStmt = con.prepareStatement(query3);
+            preparedStmt.setInt(1, movie_id);
+            preparedStmt.execute();
+            preparedStmt = con.prepareStatement(query4);
+            preparedStmt.setInt(1, movie_id);
+            preparedStmt.execute();
+            preparedStmt = con.prepareStatement(query5);
+            preparedStmt.setInt(1, movie_id);
+            preparedStmt.execute();
+
+        } catch (SQLException e) {
+            System.out.println("Error! removeMovie");
+        } finally {
+            if (stmt != null)   stmt.close();
+        }
+        return "Pomyślnie usunięto film";
     }
 
     // LISTA LAT

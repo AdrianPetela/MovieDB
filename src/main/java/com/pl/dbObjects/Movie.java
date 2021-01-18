@@ -1,6 +1,7 @@
 package com.pl.dbObjects;
 
 public class Movie {
+    int MOV_ID;
     String MOV_TITLE;
     int MOV_YEAR;
     int MOV_TIME;
@@ -8,13 +9,22 @@ public class Movie {
     String MOV_DT_REL;
     String MOV_REL_COUNTRY;
 
-    public Movie(String MOV_TITLE, int MOV_YEAR, int MOV_TIME, String MOV_LANG, String MOV_DT_REL, String MOV_REL_COUNTRY) {
+    public Movie(int MOV_ID,  String MOV_TITLE, int MOV_YEAR, int MOV_TIME, String MOV_LANG, String MOV_DT_REL, String MOV_REL_COUNTRY) {
+        this.MOV_ID = MOV_ID;
         this.MOV_TITLE = MOV_TITLE;
         this.MOV_YEAR = MOV_YEAR;
         this.MOV_TIME = MOV_TIME;
         this.MOV_LANG = MOV_LANG;
         this.MOV_DT_REL = MOV_DT_REL;
         this.MOV_REL_COUNTRY = MOV_REL_COUNTRY;
+    }
+
+    public int getMOV_ID() {
+        return MOV_ID;
+    }
+
+    public void setMOV_ID(int MOV_ID) {
+        this.MOV_ID = MOV_ID;
     }
 
     public String getMOV_TITLE() {
