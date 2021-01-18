@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pl.controllers.RankingController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="650.0">
+            <children>
+                <StackPane prefHeight="84.0" prefWidth="650.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Podaj ilość:">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Text>
+                                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="82.0" prefWidth="20.0" />
+                        <TextField fx:id="ilosc" style="-fx-cursor: text;" />
+                                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="82.0" prefWidth="20.0" />
+                                <Button mnemonicParsing="false" onAction="#pokaz" prefHeight="27.0" prefWidth="70.0" style="-fx-cursor: hand;" text="Pokaż" />
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+                <HBox prefHeight="520.0" prefWidth="650.0">
+                    <children>
+                        <TableView fx:id="Table" prefHeight="443.0" prefWidth="650.0">
+                            <columns>
+                                <TableColumn fx:id="Ttitle" prefWidth="326.0" text="Tytuł" />
+                                <TableColumn fx:id="Tratings" prefWidth="323.0" text="Ocena" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>
