@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pl.controllers.MovieController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="650.0">
+         <children>
+            <StackPane prefHeight="91.0" prefWidth="650.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rok:">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Text>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="82.0" prefWidth="20.0" />
+                        <ComboBox fx:id="comboYear" depthTest="DISABLE" nodeOrientation="LEFT_TO_RIGHT" prefHeight="27.0" prefWidth="120.0" promptText="Wybierz" style="-fx-cursor: hand;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </ComboBox>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="82.0" prefWidth="20.0" />
+                        <Button mnemonicParsing="false" onAction="#pokaz" prefHeight="27.0" prefWidth="70.0" style="-fx-cursor: hand;" text="Pokaż" />
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+            <HBox prefHeight="340.0" prefWidth="650.0">
+               <children>
+                  <TableView fx:id="Table" prefHeight="345.0" prefWidth="650.0">
+                     <columns>
+                        <TableColumn fx:id="Ttitle" prefWidth="111.0" text="Tytuł" />
+                        <TableColumn fx:id="Tyear" prefWidth="125.0" text="Rok" />
+                        <TableColumn fx:id="Ttime" prefWidth="101.0" text="Czas trwania" />
+                        <TableColumn fx:id="Tlang" prefWidth="100.0" text="Język" />
+                        <TableColumn fx:id="Tdate" prefWidth="113.0" text="Data premiery" />
+                        <TableColumn fx:id="Tcountry" prefWidth="98.0" text="Kraj" />
+                     </columns>
+                  </TableView>
+               </children>
+            </HBox>
+            <VBox prefHeight="80.0" prefWidth="650.0">
+               <children>
+                  <StackPane prefHeight="132.0" prefWidth="650.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#removeMovie" prefHeight="27.0" prefWidth="70.0" style="-fx-cursor: hand;" text="Usuń film" />
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="504.0" prefHeight="68.0" prefWidth="650.0">
+               <children>
+                  <HBox prefHeight="54.0" prefWidth="650.0">
+                     <children>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="54.0" prefWidth="46.0" />
+                        <Label layoutX="233.0" layoutY="10.0" text="Tytuł" />
+                        <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <TextField fx:id="movTitle" layoutX="177.0" layoutY="10.0" prefHeight="27.0" prefWidth="151.0" />
+                        <Separator layoutX="89.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <Label layoutX="349.0" layoutY="10.0" text="Rok" />
+                        <Separator layoutX="195.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <TextField fx:id="movYear" layoutX="265.0" layoutY="10.0" prefHeight="27.0" prefWidth="59.0" />
+                        <Separator layoutX="241.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="34.0" />
+                        <Label layoutX="458.0" layoutY="10.0" text="Czas trwania" />
+                        <Separator layoutX="347.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <TextField fx:id="movTime" layoutX="353.0" layoutY="10.0" prefHeight="27.0" prefWidth="78.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="494.0" prefHeight="68.0" prefWidth="650.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="650.0">
+                     <children>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="46.0" />
+                        <Label layoutX="233.0" layoutY="10.0" text="Język" />
+                        <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="14.0" />
+                        <TextField fx:id="movLang" layoutX="177.0" layoutY="10.0" prefHeight="27.0" prefWidth="108.0" />
+                        <Separator layoutX="89.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <Label layoutX="349.0" layoutY="10.0" text="Data premiery" />
+                        <Separator layoutX="195.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <TextField fx:id="movRel" layoutX="265.0" layoutY="10.0" prefHeight="27.0" prefWidth="88.0" />
+                        <Separator layoutX="241.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <Label layoutX="458.0" layoutY="10.0" text="Kraj" />
+                        <Separator layoutX="347.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <TextField fx:id="movCountry" layoutX="353.0" layoutY="10.0" prefHeight="27.0" prefWidth="102.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="422.0" prefHeight="80.0" prefWidth="650.0">
+               <children>
+                  <StackPane prefHeight="132.0" prefWidth="650.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#addMovie" prefHeight="27.0" prefWidth="86.0" style="-fx-cursor: hand;" text="Dodaj film" />
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

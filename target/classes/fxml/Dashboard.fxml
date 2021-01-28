@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" styleClass="stackpane" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pl.controllers.DashboardController">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="90.0" prefWidth="250.0" styleClass="dash_header" stylesheets="@stylesheet.css">
+                    <font>
+                        <Font name="Helvetica" size="24.0" />
+                    </font>
+               <graphic>
+                  <ImageView fitHeight="71.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/movie-2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+                </Label>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#openReservations" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="FIlmy" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/movie.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#openServices" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="Role filmowe" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/Screenshot%202019-06-11%20at%2023.43.53.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#openCity" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="Ranking filmów" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/ranking-cup.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#openServiceRanking" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="Gatunki filmowe" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/video-camera.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#openServiceExploration" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="Reżyserzy" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/director-chair-frontal-view.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button alignment="CENTER" layoutX="10.0" layoutY="410.0" mnemonicParsing="false" onAction="#quit" prefHeight="80.0" prefWidth="250.0" styleClass="hover_border" stylesheets="@stylesheet.css" text="Wyjdź" textFill="WHITE">
+                    <font>
+                        <Font name="Avenir Book" size="18.0" />
+                    </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</StackPane>
