@@ -54,6 +54,30 @@ public class CallableStatementParameter {
         return arrayList;
     }
 
+    public String addMovie(String MOV_TITLE, int MOV_YEAR, int MOV_TIME, String MOV_LANG, String MOV_DT_REL, String MOV_REL_COUNTRY) throws SQLException {
+        Statement stmt = null;
+        String query = "INSERT INTO MOVIE (MOV_TITLE, MOV_YEAR, MOV_TIME, MOV_LANG, MOV_DT_REL, MOV_REL_COUNTRY)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?);";
+
+        try {
+            Connection con = this.getDBConnection();
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, MOV_TITLE);
+            preparedStmt.setInt(2, MOV_YEAR);
+            preparedStmt.setInt(3, MOV_TIME);
+            preparedStmt.setString(4, MOV_LANG);
+            preparedStmt.setString(5, MOV_DT_REL);
+            preparedStmt.setString(6, MOV_REL_COUNTRY);
+            preparedStmt.execute();
+
+        } catch (SQLException e) {
+            System.out.println("Error! addMovie");
+        } finally {
+            if (stmt != null)   stmt.close();
+        }
+        return "Pomyślnie dodano film!";
+    }
+
     public String removeMovie(int movie_id) throws SQLException {
         Statement stmt = null;
         String query1 = "DELETE FROM MOVIE_GENRES MG\n" +

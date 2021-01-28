@@ -7,7 +7,6 @@ It is a simple project of a hotel chain data warehouse, with a simple gui, imple
 * [Java 11](https://www.java.com/pl/download/)
 * [JavaFX](https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm)
 * [PostgreSQL](https://www.postgresql.org)
-* [WEKA](https://www.cs.waikato.ac.nz/~ml/weka/)
 
 
 
@@ -25,7 +24,7 @@ It is a simple project of a hotel chain data warehouse, with a simple gui, imple
 
 <span>1.</span> Clone this repo<br/>
 ```
-git clone https://github.com/lokyiec/HotelsDataWarehouse.git
+git clone https://github.com/AdrianPetela/MovieDB.git
 ```
 <span>2.</span> Go to pgdatabase and run command
 ```

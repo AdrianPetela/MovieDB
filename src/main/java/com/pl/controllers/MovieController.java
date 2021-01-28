@@ -43,6 +43,25 @@ public class MovieController {
     private TableColumn<Movie, String> Tcountry;
 
     @FXML
+    private TextField movTitle;
+
+    @FXML
+    private TextField movYear;
+
+    @FXML
+    private TextField movTime;
+
+    @FXML
+    private TextField movLang;
+
+    @FXML
+    private TextField movRel;
+
+    @FXML
+    private TextField movCountry;
+
+
+    @FXML
     void pokaz(ActionEvent event) {
         przeladuj();
     }
@@ -74,6 +93,12 @@ public class MovieController {
         Movie movie = Table.getSelectionModel().getSelectedItem();
         System.out.println(movie.getMOV_ID());
         cspie.removeMovie(movie.getMOV_ID());
+        przeladuj();
+    }
+
+    @FXML
+    void addMovie(ActionEvent event) throws SQLException {
+        cspie.addMovie(movTitle.getText(), Integer.parseInt(movYear.getText()), Integer.parseInt(movTime.getText()), movLang.getText(), movRel.getText(), movCountry.getText());
         przeladuj();
     }
 
